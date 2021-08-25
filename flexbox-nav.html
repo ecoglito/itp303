@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Flexbox</title>
+</head>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    a {
+        background-color: #3D2319;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+        width: 25%;
+        color: white;
+        text-decoration:none;
+    }
+    a:hover {
+        background-color: #8f7ced;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @media(max-width: 991px){
+        a {
+            width: 50%;
+        }
+    }
+    @media(max-width: 767px){
+        a {
+            width: 100%;
+        }
+    }
+</style>
+
+<body style="background-color: antiquewhite;">
+    <div class = "container">
+        <a href ="#">Page 1</a>
+        <a href ="#">Page 2</a>
+        <a href ="#">Page 3</a>
+        <a href ="#">Page 4</a>
+    </div>
+    <h1 style ="text-align: center"> Flexbox Lab!</h1>
+</body>
+
+
+</html>
