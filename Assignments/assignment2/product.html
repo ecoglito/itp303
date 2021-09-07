@@ -1,248 +1,194 @@
-<html>
-<head>
-    <title>My Product</title>
-    <style>
-        body {
-            background-color: white;
-            margin: 0px;
-            padding: 0px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        div.banner {
-            background-color: orange;
-            padding:20px;
-            text-align: center;
-        }
-        #wrapper {
-            background-color:white;
-            margin:auto;
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+	<title>Enzo's Product Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> <!--mobile viewport-->
+	<style>
+         @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+		html, body {
+			margin: 0;
+			padding: 0;
+		}
+		#banner {
+			text-align: center;
+			background-color: darkblue;
+		}
+		#banner h1 {
             padding-top: 10px;
-            padding-bottom: 20px;
-            width:100%;
-            text-align: center;
-        }
-        #wrapper h2 {
-            display:block;
-        }
-        #productImage img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 300px;
-            padding-bottom: 20px;
-            height: auto;
-        }
-        #pricePromo {
-            border: solid black 1px;
-            background-color: orange;
-            width:300px;
-            height:45px;
-            margin-top: 20px;
-            margin-left: auto;
-            margin-right: auto;
-            vertical-align: center;
-            text-align: center;
-        }
-        #productInfo{
-            text-align: center;
-            font-size: 15px;
-            width: 350px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #productInfo img {
-            width: 280px;
-        }
-       
-        .clearfloat{
-            clear:both;
-        }
+            padding-bottom: 10px;
+			margin: 0;
+            color: white;
+            font-family: 'ZCOOL KuaiLe', cursive;
+		}
+		h1 {
+			font-family: 'ZCOOL KuaiLe', cursive;
+		}
 
-        #relatedImg {
-            position: relative;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 5px;
-            width: 350px;
-            height: 350px;
-            border: 2px solid black;
-        }
-        #relatedImg img {
-            width: 350px;
-            height: 350px;
-        }
-        #relatedImg .overlay {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            height: 100%;
-            width: 100%;
-            visibility: hidden;
-            background-color:orange;
-        }
-        #relatedImg .overlay .overlayText {
-            text-align: center;
-            font-size: 40px;
-            padding-top: 50%;
-        }
-        #relatedImg:hover .overlay{
-            visibility: visible;
-            opacity: .9;
-        }
+		#content {
+			margin-left: 10px;
+		}
+		#promo {
+			width: 70%;
+			background-color: orange;
+			border: 1px solid black;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 40px;
+			text-align: center;
+		}
+		#content {
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+		#product-details {
+			max-width: 1000px;
+		}
+		img {
+			width: 100%;
+		}
+		#review {
+			width: 50%;
+		}
 
-        @media (min-width: 768px) {
-            #wrapper {
-                padding-left: 10px;
-                padding-right: 10px;
-                width: 768px;
-            }
-            #wrapper h2 {
-                display: none;
-            }
-            #productInfo h2 {
-                display: block;
-            }
-            #productInfo img {
-                float: left;
-                margin-left: 0px;
-                margin-right: 0px;
-            }
-            #productInfo {
-                float: left;
-                margin-left: 20px;
-            }
-            #pricePromo {
-                margin-left: 20px;
-                margin-right: 20px;
-                float: left;
-            }
-            #relateditems-header {
-                margin-left: 10px;
-                margin-bottom: 20px;
-            }
-            #relatedImg {
-                margin: 5px;
-                float: left;
-            }
-        }
-        
-        @media (min-width: 992px) {
-            body {
-                background-color: antiquewhite;
-            }
-            #content {
-                padding-left: 10px;
-                padding-right: 10px;
-                width: 992px;
-            }
-            #wrapper h2 {
-                display: none;
-            }
-            #productInfo h2{
-                display: block;
-            }
-            #productInfo img {
-                width: 476px;
-                float: left;
-                margin-left: 0px;
-                margin-right: 0px;
-            }
-            #image {
-                width: 280px;
-            }
-            #productInfo {
-                width: 476px;
-                float: left;
-                margin-left: 20px;
-            }
-            #pricePromo {
-                margin-left: 20px;
-                margin-right: 20px;
-                float: left;
-            }
-            #relateditems-header {
-                margin-left: 10px;
-                margin-bottom: 20px;
-            }
-            #relatedImg img{
-                width: 232px;
-                height: 232px;
-            }
-            #relatedImg {
-                width: 232px;
-                height: 232px;
-                margin: 5px;
-                float: left;
-            }
-        }
+		.row:after {
+			content: "";
+			clear: both;
+			display: table;
+		}
 
-       
-        
-    </style>
+		.related-item {
+			border: 2px solid black;
+			width: 50%;
+			float: left;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+		}
+		.related-item {
+			position: relative;
+		}
+		.related-item .name {
+			text-align: center;
+			width: 50%;
+			position: absolute;
+			top: 50%;
+			left: 25%;
+			visibility: hidden;
+		}
+		.related-item:hover .name {
+			visibility: visible;
+		}
+		#content .row #product-images {
+			float: left;
+		}
+		
+		#content .row .related-item:hover {
+			background-color: rgba(248,126,52,0.5);
+		}
+		#content .row .related-item:hover img{
+			opacity: 0.2;
+		}
+		#mobile-header {
+			display: none;
+		}
+		@media (min-width: 768px) {
+			#content .row #product-images {
+				width: 46%;
+				margin: 2%;
+			}
+			#content .row .related-item {
+				width: 46%;
+				margin: 2%;
+			}
+			#review {
+				width: 40%;
+			}
+			#mobile-header {
+				display: block;
+			}
+			#product_name {
+				display: none;
+			}
+			#product-details {
+				float: left;
+				width: 50%;
+			}
+			#review {
+				width: 50%;
+			}
+		}
+
+		@media (min-width: 992px) {
+			#content .row .related-item {
+				width: 21%;
+				margin: 2%;
+			}
+		}
+	</style>
 </head>
-
 <body>
-    <div class="banner">
-        <h1>Enzo's Store</h1>
+	<div id="banner">
+         <h1>Enzo's Store</h1>
     </div>
-    <div id = "wrapper">
-        <h1>Playstation 5</h1>
-        <div id = "productImage">
-            <img src="images/ps5.png", alt ="ps5 photo">
-            <div id = "pricePromo">
-                <strong>Now available for $699 with promo code "MorePlayFun"</strong>
-            </div>
-        </div>
-        <div id = "productInfo">
-             <h2>Playstation 5</h2>
-            <h2>$895.00</h2>
-            <img id = "image" src = "images/review.png", alt = "reviews">
-            <ul>
-                <li>
-                    <strong>Lightning Speed</strong> - Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation console can do.
-                </li>
-                <li>
-                    <strong>Stunning Games</strong> - Marvel at incredible graphics and experience new PS5 features.
-                </li>
-                <li>
-                    <strong>Breathtaking Immersion</strong> - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio technology.
-                </li>
-            </ul>
-        </div>
-        <div class = "clearfloat"></div>
-        <h2 id ="relateditems-header">Related Items</h2>
-        <div id = "relatedItems">
-            <div id = "relatedImg">
-                <img src="images/ps4.png", alt ="PS4">
-                <div class = "overlay">
-                    <div class = "overlayText"> PS4 </div>
+	<div id="content">
+		<h1 id="product_name">Xbox Series X</h1>
+		<div class="row">
+			<div id="product-images">
+				<div id="image">
+					<img src="images/xbox.png" alt="xbox series x">
+				</div>
+				<div id="promo">
+					Code: <strong>XBOX20</strong> for 20% off!
+				</div>
+			</div>
+			
+			<div id="product-details">
+				<h1 id="mobile-header">Xbox Series X</h1>
+				<h2>Price: $850.00</h2>
+				<img id="review" src="images/review.png" alt="review">
+				<ul>
+				<li><strong>Introducing Xbox Series X</strong>, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles-all games look and play best on Xbox Series X.</li>
+                <li><strong>Experience </strong>next-gen speed and performance with the Xbox velocity architecture, powered by a custom SSD and integrated software.</li>
+                <li><strong>Play thousands</strong> of games from 4 generations of Xbox with Backward compatibility, including optimized titles at launch.</li>
+                <li><strong>Download and play</strong> over 100 high-quality games, including all new Xbox Game Studios titles like Halo Infinite the day they release, with Xbox Game Pass ultimate (membership sold separately).</li>
+                <li><strong>Xbox Smart delivery</strong> ensures you play the best available version of your game no matter which Console you're playing on.</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row">
+			<h1>Related Items</h1>
+			<div class="related-item">
+				<img src="images/xboxone.png" alt="XBOX ONE">
+				<div class="name">
+                    <strong>XBOX ONE</strong>
                 </div>
-            </div>
-            <div id = "relatedImg">
-                <img src="images/xbox.png", alt ="xbox">
-                <div class = "overlay">
-                    <div class = "overlayText"> Xbox </div>
+			</div>
+			<div class="related-item">
+				<img src="images/kinect.png" alt="Kinect">
+				<div class="name">
+                    <strong>XBOX Kinect</strong>
                 </div>
-            </div>
-        
-            <div id = "relatedImg">
-                <img src="images/switch.png", alt ="PS4">
-                <div class = "overlay">
-                    <div class = "overlayText"> Switch </div>
+			</div>
+			<div class="related-item">
+				<img src="images/controller.png" alt="Controller">
+				<div class="name">
+                    <strong>CONTROLLER</strong>
                 </div>
-            </div>
-            <div id = "relatedImg">
-                <img src="images/controller.jpg", alt ="Controller">
-                <div class = "overlay">
-                    <div class = "overlayText"> Controller </div>
+			</div>
+			<div class="related-item">
+				<img src="images/mic.png" alt="Mic">
+				<div class="name">
+                    <strong>MICROPHONE</strong>
                 </div>
-            </div>
-        </div>
-        
-        
-    </div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
-
-
