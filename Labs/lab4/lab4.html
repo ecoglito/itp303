@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        Lab 4
+    </title>
+    <style>
+        .clearfloat {
+            clear: both;
+        }
+        .container {
+            width: 600px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        .thumbnail {
+			border: 1px solid #000;
+			width: 138px;
+			height: 138px;
+			margin: 5px;
+			float: left;
+			overflow: hidden;
+			opacity: 0.6;
+			cursor: pointer;
+		}
+        
+        .thumbnail :hover {
+            opacity: 1.0;
+        }
+
+        .thumbnail > img {
+            height: 100%;
+        }
+
+        #img-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        #img-container img {
+            width: 100%;
+        }
+
+        #img-container p {
+            font-size: 1.5em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class = "container">
+        <h1> USC Image Gallery </h1>
+
+        <div id = "thumbnail wrapper">
+            <div class = "thumbnail">
+                <img src = "images/thumb_1.jpg" alt ="USC village">
+            </div>
+
+            <div class = "thumbnail">
+                <img src = "images/thumb_2.jpg" alt ="Tutor Campus Center">
+            </div>
+
+            <div class = "thumbnail">
+                <img src = "images/thumb_3.jpg" alt ="VKC">
+            </div>
+
+            <div class = "thumbnail">
+                <img src = "images/thumb_4.jpg" alt ="Fountain">
+            </div>
+        </div>
+        
+        <div class = "clearfloat"></div>
+        <div id = "img-container">
+            <img src = "images/thumb_1.jpg" alt = "USC Village" id = "switch-img">
+            <p>USC Village</p>
+        </div>
+    </div>
+
+    <script>
+		let thumbnails = document.querySelectorAll(".thumbnail");
+		for (let i = 0; i < thumbnails.length; i++) {
+			thumbnails[i].onclick = function () {
+				for (let j = 0; j < thumbnails.length; j++) {
+					thumbnails[j].style.opacity = 0.6;
+                    //border color
+					thumbnails[j].style.borderColor = "#F7CED";
+				}
+				
+
+				this.style.opacity = 1.0;
+                //border color
+				this.style.borderColor = "#F7CED";
+				// img
+				document.querySelector("#switch-img").src = this.children[0].src;
+				document.querySelector("#switch-img").alt = this.children[0].alt;
+				// p
+				document.querySelector("#img-container p").innerHTML = this.children[0].alt;
+			}
+		}
+	</script>
+
+</body>
