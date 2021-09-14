@@ -1,103 +1,132 @@
 <!DOCTYPE html>
+<html>
 <head>
-    <title>
-        Lab 4
-    </title>
-    <style>
-        .clearfloat {
-            clear: both;
-        }
-        .container {
-            width: 600px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-        }
+	<title>JS Photo Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		.clearfloat {
+			clear: both;
+		}
 
-        .thumbnail {
+		.section {
+			width: 600px;
+			margin: auto;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		.thumbnail {
 			border: 1px solid #000;
 			width: 138px;
 			height: 138px;
 			margin: 5px;
 			float: left;
 			overflow: hidden;
+
 			opacity: 0.6;
+
 			cursor: pointer;
 		}
-        
-        .thumbnail :hover {
-            opacity: 1.0;
-        }
 
-        .thumbnail > img {
-            height: 100%;
-        }
+		.thumbnail:hover {
+			opacity: 1.0
+		}
 
-        #img-container {
-            text-align: center;
-            margin-top: 30px;
-        }
+		.thumbnail > img {
+			height: 100%;
+		}
 
-        #img-container img {
-            width: 100%;
-        }
+		#main-img-container {
+			text-align: center;
+			margin-top: 30px;
+		}
 
-        #img-container p {
-            font-size: 1.5em;
-        }
+		#main-img-container img {
+			max-width: 100%;
+		}
 
-    </style>
+		#main-img-container p {
+			font-size: 1.5em;
+		}
+
+		/* Desktops */
+		@media (max-width: 1199px) {
+
+		}
+
+		/* Tablets */
+		@media (max-width: 991px) {
+
+		}
+
+		/* Phones */
+		@media (max-width: 767px) {
+			#thumbnail-wrapper {
+				width: 300px;
+				margin: auto;
+			}
+		}
+	</style>
 </head>
-
 <body>
-    <div class = "container">
-        <h1> USC Image Gallery </h1>
+	<div id="gallery" class="section">
+		<h1>USC Image Gallery</h1>
 
-        <div id = "thumbnail wrapper">
-            <div class = "thumbnail">
-                <img src = "images/thumb_1.jpg" alt ="USC village">
-            </div>
+		<div id="thumbnail-wrapper">
+			<div class="thumbnail">
+				<img src="images/thumb_1.jpg" alt="USC Village">
+			</div>
 
-            <div class = "thumbnail">
-                <img src = "images/thumb_2.jpg" alt ="Tutor Campus Center">
-            </div>
+			<div class="thumbnail">
+				<img src="images/thumb_2.jpg" alt="Tutor Campus Center">
+			</div>
 
-            <div class = "thumbnail">
-                <img src = "images/thumb_3.jpg" alt ="VKC">
-            </div>
+			<div class="thumbnail">
+				<img src="images/thumb_3.jpg" alt="VKC">
+			</div>
 
-            <div class = "thumbnail">
-                <img src = "images/thumb_4.jpg" alt ="Fountain">
-            </div>
-        </div>
-        
-        <div class = "clearfloat"></div>
-        <div id = "img-container">
-            <img src = "images/thumb_1.jpg" alt = "USC Village" id = "switch-img">
-            <p>USC Village</p>
-        </div>
-    </div>
+			<div class="thumbnail">
+				<img src="images/thumb_4.jpg" alt="Fountain">
+			</div>
 
+			<div class='clearfloat'></div>
+
+		</div> <!-- #thumbnail-wrapper -->
+
+		<div id="main-img-container">
+			<img src="images/thumb_1.jpg" alt="USC Village" id="main-img">
+			<p>Usc Village</p>
+		</div> <!-- #main-img-container -->
+
+	</div> <!-- .section -->
+</body>
+</html>
+    
     <script>
+        //make a variable for thumbnails
 		let thumbnails = document.querySelectorAll(".thumbnail");
+        //for loop running through the length of all the thumbnail variables
 		for (let i = 0; i < thumbnails.length; i++) {
+            //function where when we click the thumbnail
 			thumbnails[i].onclick = function () {
+                //nested for loop in function that changes all the other ones to not clicked
 				for (let j = 0; j < thumbnails.length; j++) {
+                    //changes the opacity to .6
 					thumbnails[j].style.opacity = 0.6;
-                    //border color
-					thumbnails[j].style.borderColor = "#F7CED";
+                    //border color to black, meaning it's not clicked
+					thumbnails[j].style.borderColor = "#000000";
 				}
-				
-
+                //change opacity to 1 to make it prominent
 				this.style.opacity = 1.0;
-                //border color
-				this.style.borderColor = "#F7CED";
-				// img
-				document.querySelector("#switch-img").src = this.children[0].src;
-				document.querySelector("#switch-img").alt = this.children[0].alt;
-				// p
-				document.querySelector("#img-container p").innerHTML = this.children[0].alt;
+                //border color to red
+				this.style.borderColor = "#F00000";
+                //change the src to the clicked img
+				document.querySelector("#main-img").src = this.children[0].src;
+                //change the text & the alt to the clicked img
+				document.querySelector("#main-img").alt = this.children[0].alt;
+				document.querySelector("#main-img-container p").innerHTML = this.children[0].alt;
 			}
 		}
 	</script>
