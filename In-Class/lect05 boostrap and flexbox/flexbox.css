@@ -1,0 +1,65 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Oswald', sans-serif;
+}
+/* The asterik selectors selects all the elements in this hitml file. in this css rule below, all elements have the property box-sizing set to border box so that we dont have to worry about paddings /borders affecting width of elements
+*/
+* {
+	box-sizing: border-box;
+}
+
+/* Colors for each box. */
+.box1 { background-color: #011627; }
+.box2 { background-color: #EB5160; }
+.box3 { background-color: #030301; }
+.box4 { background-color: #00D9C0; }
+.box5 { background-color: #FF0022; }
+
+/* The parent */
+.container {
+  border: 10px solid skyblue;
+  display: flex;
+  /* By default the children flex items will fit the height of its parent */
+  height: 500px;
+  
+  /* Flex direction property determines the main axis (left to right, right to left, top to bottom, etc */
+  flex-direction: row;
+ /* by default, flex items will try to fit onto one line. flex-wrap controls this. changing flex-wrap to wrap will wrap flex onto multiple lines*/
+  flex-wrap: nowrap;
+
+  /* justify content defines alignment along the main axis( main axis is set by flex direction) horizontal */
+  justify-content: center;
+
+  /*align items defines alignment along the cross axis ( cross axis is the opposite of main axis, vertical*/
+  align-items: stretch;
+}
+
+/* .container's direct children */
+.box {
+	color: white;
+  	font-size: 28px;
+	/* By default, flexbox will keep the children elements in one row. If screen size gets too small to fit all the children elements, it will squish down the children elements.
+	
+	example: width:600px, the boxes won't actually be 600px, it will reduce the size to fit on the screen
+	*/
+	width: 200px;
+	/* flex grow will make it so that our elements grow to the fit container*
+	
+	flex-grow: 1;
+	*/
+
+	margin: 10px;
+	
+	
+	
+}
+
+.box2 {
+	/*Can use order to change the order placement of a flex item The flex item with the highest value will go later. By default, all flex items have order of 0. */
+	order: 1;
+}
+
+.box1 {
+	order: 3;
+}

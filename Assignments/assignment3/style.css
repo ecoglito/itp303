@@ -1,0 +1,43 @@
+.navbar-custom {
+	background-color: skyblue;
+}
+
+.btn-custom{
+	background-color: purple;
+}
+
+.col-custom{
+	text-align: center;
+}
+
+#header{
+	background-image: url("images/header.jpg");
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: cover; 
+	background-position: center top;
+	text-align: center;
+	color: white;
+	margin-bottom: 30px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+
+h2 {
+	margin-top: 20px;
+}
+img {
+	height: 300px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	width: 100%;
+	height: auto;
+}
+
+.container {
+	padding-bottom: 50px;
+}
+
