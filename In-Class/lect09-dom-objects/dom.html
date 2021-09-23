@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<title>Creating Elements</title>
+
+	<style>
+		.red {
+			color: red;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="my-4">Create elements dynamically </h1>
+
+		<form class="row row-cols-md-auto g-3" id="simple-form">
+			<div class="col-12">
+				<input type="text" class="form-control" id="textInput" placeholder="Add some text" />
+			</div>
+
+			<div class="col-12">
+				<button type="submit" class="btn btn-primary" id = >Add</button>
+				<button type="button" class="btn btn-success" id="btn-string">Add using string</button>
+				<button type="button" class="btn btn-danger" id="btn-delete">Delete All</button>
+			</div>
+		</form>
+
+
+		<div class="row">
+			<div class="col-12 mt-4">
+				<div id="paragraphs-container">
+					<p class="red">I am a paragraph</p>
+					<p class="red">I am a second paragraph</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+
+	<script>
+		document.querySelector("#simple-form").onsubmit = function (event) {
+			event.preventDefault();
+			//get the user's input in the form
+			let userInput = document.querySelector("#textInput").value.trim();
+
+			//quick user validation 			
+			if (userInput.length > 0) {
+				//if user has actually typed somethingh, create a <p> element
+
+				let pElement = document.createElement("p");
+				pElement.textContent = userInput;
+				pElement.classList.add("red");
+				
+				//display it on the browser
+				document.querySelector("#paragraphs-container").appendChild(pElement);
+				
+				document.querySelector("#textInput").value = "";
+			}
+		}
+			//add using string
+
+			document.querySelector("#btn-string").onclick = function() {
+
+				let userInput = document.querySelector("#textInput").value.trim();
+
+
+				if(userInput.length > 0) {
+
+					//this time use a string instead of createElement
+
+					//can insert variables within ${} when using backticks to create a string
+					let htmlString = `<p>${userInput}<p>`;
+					
+					document.querySelector("#paragraphs-container").innerHTML += htmlString;
+
+					//add a classlist
+					//document.querySelector("#paragraphs-container p").classList.add("red")
+				}
+				//create a P
+
+
+
+			}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS</title>
+	<style>
+		form {
+			width: 500px;
+		}
+		.form-row {
+			margin-bottom: 10px;
+			display: flex;
+		}
+		label {
+			padding-right: 10px;
+			width: 60px;
+		}
+		input {
+			width: 150px;
+			height: 20px;
+		}
+		.error {
+			color: red;
+			font-style: italic;
+			margin-left: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1 id="text">Form</h1>
+
+	<form id="form" method="" action="">
+
+		<div class="form-row">
+			<label for="name-input">Name: </label>
+			<input type="text" id="name-input" name="name-input" placeholder="Tommy Trojan" />
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<label for="age-input">Age: </label>
+			<input type="text" id="age-input" name="age-input"/> 
+			<div class="error">Error message</div>
+		</div>
+
+		<div class="form-row">
+			<button type="submit" id="go-button">Go</button>
+		</div>
+
+	</form>
+
+	<script>
+		//other commopn js events - keypress
+		// document.onkeydown = function() {
+		// 	console.log("keydown")
+		// }
+		// document.onkeyup = function() {
+		// 	console.log("keyup")
+		// }
+		//key press doesnt work with arrow, control, alt, etc, only for typing text
+		// document.onkeypress = function(event) {
+		// 	console.log("keypress");
+			//console.log(event)
+			//everytime onkeypress event is triggered, it gets passed an event object that tellsu s more about the event that was just triggered
+			// console.log(event.key);
+
+			//can display what user typed onto the broswer by grabbing an elemtn from the dom and adding test ext it
+		// 	document.querySelector("#text").innerHTML += event.key;
+		// }
+
+		// document.onscroll = function () {
+
+		// }
+
+		// primative data types in JS
+		let number = 7;
+		//this is legal
+		console.log(number + 1.1)
+
+		//add a number and a string, it will concetate as a string
+		console.log(1+ " 7");
+
+		console.log
+
+		document.querySelector("#form").onsubmit = function () {
+			//we dont want the form to actually be submitted we want to prevent
+			event.preventDefault();
+			console.log("Form is submitted!");
+
+			//check if name input is empty, grab users input and trim any whitespace
+
+			let firstnameInput = document.querySelector("#name-input").value.trim();
+
+			console.log(firstnameInput);
+
+			if (firstnameInput.length <= 0 ) {
+				console.log("name input is empty")
+				document.querySelector("#name-input").nextElementSibling.innerHTML = "Name cannot be empty"
+
+				document.querySelector("#name-input").nextElementSibling.style.visbility = "visible";
+			}
+			else {
+				document.querySelector("#name-input").nextElementSibling.style.visbility = "hidden";
+			}
+		}
+	</script>
+
+</body>
+</html>

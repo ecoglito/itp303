@@ -1,0 +1,35 @@
+.img-hover {
+	max-width: 100%;
+}
+
+.html {
+	background-color: lightblue;
+}
+
+.img-container {
+	position:relative;
+	width: auto;
+}
+
+.img-container img {
+	object-fit: cover;
+}
+
+.img-container:hover img{
+	opacity: 0.2;
+}
+
+.img-container:hover .hoverContent {
+	opacity: 1;
+}
+
+.hoverContent {
+	text-align: center;
+	position: absolute;
+	top:0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.75);
+	color: white;
+	opacity: 0;
+}
